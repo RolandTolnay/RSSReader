@@ -41,6 +41,7 @@ class MainViewController: UIViewController {
       noDataLabel.isHidden = true
       setupTableView()
       setupLoadingIndicator()
+      setupGestureRecognizers()
       
       refreshFeed() {
          // For testing purposes
@@ -77,6 +78,12 @@ class MainViewController: UIViewController {
       self.view.addSubview(activityIndicator)
    }
    
+   private func setupGestureRecognizers() {
+      let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(onSwipe(gesture:)))
+      swipeRight.direction = .right
+      self.view.addGestureRecognizer(swipeRight)
+   }
+   
    // MARK: -
    // MARK: Actions
    // --------------------
@@ -92,7 +99,7 @@ class MainViewController: UIViewController {
             !text.isEmpty,
             let url = URL(string: text) else { return }
          
-         FeedUrlStorage.shared.saveUrl(url)
+         FeedUrlStorage.shared.persistUrl(url)
          self.refreshFeed()
       })
       let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -108,31 +115,32 @@ class MainViewController: UIViewController {
       self.present(alert, animated: true, completion: nil)
    }
    
+   @objc private func onSwipe(gesture: UIGestureRecognizer) {
+      self.performSegue(withIdentifier: "showHistorySegue", sender: self)
+   }
+   
    fileprivate func refreshFeed(onFinish: (()->())? = nil) {
       incrementActivity()
       
       let url = FeedUrlStorage.shared.rssUrl
       feedReader.fetchFeedItems(from: url) { feedTitle, items, error in
          self.decrementActivity()
-         
-         defer { onFinish?() }
-         guard error == nil else {
-            DispatchQueue.main.async {
+         DispatchQueue.main.async {
+            defer { onFinish?() }
+            
+            guard error == nil else {
                self.showAlert(with: error!.localizedDescription)
                self.updateLayout(isFeedEmpty: true)
+               return
             }
-            return
-         }
-         DispatchQueue.main.async {
             self.navigationItem.title = feedTitle
-         }
-         guard let items = items, !items.isEmpty else {
-            self.feedItems = []
-            return
-         }
-         
-         self.feedItems = items
-         DispatchQueue.main.async {
+            guard let items = items, !items.isEmpty else {
+               self.feedItems = []
+               return
+            }
+            
+            HistoryManager.shared.addNewItem(title: feedTitle ?? url.absoluteString, url: url)
+            self.feedItems = items
             self.tableView.reloadData()
          }
       }
@@ -149,6 +157,15 @@ class MainViewController: UIViewController {
    fileprivate func updateLayout(isFeedEmpty: Bool) {
       tableView.isHidden = isFeedEmpty
       noDataLabel.isHidden = !isFeedEmpty
+      tableView.reloadData()
+   }
+   
+   // MARK: -
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+      if let navigationVC = segue.destination as? UINavigationController,
+         let historyVC = navigationVC.viewControllers.first as? HistoryViewController {
+         historyVC.delegate = self
+      }
    }
 }
 
@@ -230,3 +247,13 @@ extension MainViewController: UITableViewDelegate {
    }
 }
 
+// MARK: -
+// MARK: History
+// --------------------
+extension MainViewController: HistorySelectionListener {
+   
+   func didSelectHistoryItem(_ historyItem: HistoryItem) {
+      FeedUrlStorage.shared.persistUrl(historyItem.url)
+      self.refreshFeed()
+   }
+}

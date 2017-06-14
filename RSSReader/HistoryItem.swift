@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+struct HistoryItem: Equatable {
+   
+   var title: String
+   var url: URL
+}
+
+func ==(lhs: HistoryItem, rhs: HistoryItem) -> Bool {
+   return lhs.title == rhs.title && lhs.url == rhs.url
+}

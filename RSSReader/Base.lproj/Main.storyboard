@@ -43,6 +43,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="aXa-p4-Mfk">
+                        <barButtonItem key="leftBarButtonItem" image="icon-history" id="DHF-Hj-YtI">
+                            <color key="tintColor" red="0.0" green="0.15686274510000001" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="IC3-z0-3da" kind="presentation" identifier="showHistorySegue" id="23h-Vu-c5d"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="icon-rss" id="B5n-qM-Dgv">
                             <color key="tintColor" red="0.0" green="0.15686274510000001" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -57,7 +63,64 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1056.8" y="123.68815592203899"/>
+            <point key="canvasLocation" x="145" y="124"/>
+        </scene>
+        <!--History-->
+        <scene sceneID="E1w-rl-lzD">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xl2-7d-yQx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="uVy-g9-scz" customClass="HistoryViewController" customModule="RSSReader" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ldX-ng-kw4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HistoryItemCell" textLabel="vnK-IK-qH1" style="IBUITableViewCellStyleDefault" id="uc7-fQ-chb">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uc7-fQ-chb" id="Bcq-nl-p2e">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vnK-IK-qH1">
+                                            <rect key="frame" x="15" y="0.0" width="345" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="uVy-g9-scz" id="grA-Hy-lK8"/>
+                            <outlet property="delegate" destination="uVy-g9-scz" id="0Eo-lv-gc6"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="History" id="exk-JG-Nc2"/>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="-626" y="-598"/>
+        </scene>
+        <!--Side Menu Navigation Controller-->
+        <scene sceneID="MAf-lt-r8P">
+            <objects>
+                <navigationController id="IC3-z0-3da" customClass="UISideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Gh3-Db-t04">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="leftSide" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <segue destination="uVy-g9-scz" kind="relationship" relationship="rootViewController" id="io2-dg-CJl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8tZ-vM-JUj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1423" y="-599"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="CxH-Om-Ejb">
@@ -71,7 +134,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="utA-Ch-Tyy">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="utA-Ch-Tyy">
                                 <rect key="frame" x="16" y="44" width="130" height="194"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="130" id="7ff-9W-age"/>
@@ -135,7 +198,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X3t-wl-BAy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1057" y="823"/>
+            <point key="canvasLocation" x="145" y="827"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1nj-qf-bBE">
@@ -153,11 +216,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NpA-l6-XNR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="117.59999999999999" y="123.68815592203899"/>
+            <point key="canvasLocation" x="-626" y="124"/>
         </scene>
     </scenes>
     <resources>
         <image name="icon-close" width="22" height="25"/>
+        <image name="icon-history" width="25" height="25"/>
         <image name="icon-rss" width="25" height="25"/>
     </resources>
 </document>

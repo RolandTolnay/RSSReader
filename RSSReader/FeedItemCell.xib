@@ -12,26 +12,26 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FeedItemCell" id="9EX-1z-V5X" customClass="FeedItemCell" customModule="RSSReader" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="91"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9EX-1z-V5X" id="zh5-b2-eO8">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="91"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="94.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZOQ-rz-SQd">
-                        <rect key="frame" x="8" y="12" width="285" height="21"/>
-                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZOQ-rz-SQd">
+                        <rect key="frame" x="8" y="10.5" width="285" height="18"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IWv-rc-quE">
-                        <rect key="frame" x="8" y="41" width="285" height="16"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <rect key="frame" x="8" y="70" width="285" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1UA-O6-6uE">
-                        <rect key="frame" x="301" y="12" width="66" height="66"/>
+                        <rect key="frame" x="301" y="14.5" width="66" height="66"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="66" id="W1R-IS-HD3"/>
                             <constraint firstAttribute="width" constant="66" id="px1-z3-27a"/>
@@ -40,14 +40,15 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="1UA-O6-6uE" firstAttribute="leading" secondItem="ZOQ-rz-SQd" secondAttribute="trailing" constant="8" id="0RM-Zn-1Lg"/>
-                    <constraint firstItem="1UA-O6-6uE" firstAttribute="top" secondItem="zh5-b2-eO8" secondAttribute="topMargin" constant="4" id="6Y2-T2-gx0"/>
-                    <constraint firstItem="ZOQ-rz-SQd" firstAttribute="top" secondItem="1UA-O6-6uE" secondAttribute="top" id="HGR-Ta-ey9"/>
+                    <constraint firstItem="IWv-rc-quE" firstAttribute="bottom" secondItem="1UA-O6-6uE" secondAttribute="bottom" constant="4" id="5fc-An-vGw"/>
+                    <constraint firstItem="1UA-O6-6uE" firstAttribute="top" secondItem="zh5-b2-eO8" secondAttribute="topMargin" constant="6" id="6Y2-T2-gx0"/>
+                    <constraint firstItem="ZOQ-rz-SQd" firstAttribute="top" secondItem="1UA-O6-6uE" secondAttribute="top" constant="-4" id="HGR-Ta-ey9"/>
                     <constraint firstItem="1UA-O6-6uE" firstAttribute="trailing" secondItem="zh5-b2-eO8" secondAttribute="trailingMargin" id="LOR-Fc-M5D"/>
+                    <constraint firstItem="IWv-rc-quE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ZOQ-rz-SQd" secondAttribute="bottom" constant="6" id="R9r-pl-13d"/>
                     <constraint firstItem="ZOQ-rz-SQd" firstAttribute="leading" secondItem="zh5-b2-eO8" secondAttribute="leadingMargin" id="SQG-Fe-Q7G"/>
                     <constraint firstItem="IWv-rc-quE" firstAttribute="leading" secondItem="zh5-b2-eO8" secondAttribute="leadingMargin" id="WTO-LK-KnX"/>
                     <constraint firstItem="1UA-O6-6uE" firstAttribute="leading" secondItem="IWv-rc-quE" secondAttribute="trailing" constant="8" id="XCp-wd-Obg"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="1UA-O6-6uE" secondAttribute="bottom" constant="4.5" id="aWR-vx-cBf"/>
-                    <constraint firstItem="IWv-rc-quE" firstAttribute="top" secondItem="ZOQ-rz-SQd" secondAttribute="bottom" constant="8" id="xS0-ls-D1r"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="1UA-O6-6uE" secondAttribute="bottom" constant="6" id="aWR-vx-cBf"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
