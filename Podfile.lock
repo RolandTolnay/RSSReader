@@ -1,0 +1,18 @@
+PODS:
+  - FeedKit (6.0.1)
+  - Nuke (5.1.1)
+  - PullToRefreshSwift (3.0.3)
+
+DEPENDENCIES:
+  - FeedKit (~> 6.0)
+  - Nuke (~> 5.0)
+  - PullToRefreshSwift (~> 3.0)
+
+SPEC CHECKSUMS:
+  FeedKit: 02a602326d8f984c7588ccc0d5679ba7d3b15d4f
+  Nuke: 0a2ddb4bd13d75782964bf598a159ca2a836d826
+  PullToRefreshSwift: 0743b818072bfd7c9464addc2d1b987b131057ca
+
+PODFILE CHECKSUM: e9218146169f077924a97feb31db915a6b546a27
+
+COCOAPODS: 1.2.1
