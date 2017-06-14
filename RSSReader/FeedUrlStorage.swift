@@ -18,9 +18,9 @@ class FeedUrlStorage {
    private init() { }
    
    var rssUrl: URL {
-      guard let saved = loadSavedUrl() else {
+      guard let saved = savedUrl() else {
          let url = URL(string: defaultRssUrlString)!
-         saveUrl(url)
+         persistUrl(url)
          return url
       }
       
@@ -28,13 +28,13 @@ class FeedUrlStorage {
    }
    
    /// Sets and saves the url to persistance
-   func saveUrl(_ url: URL) {
+   func persistUrl(_ url: URL) {
       let urlString = url.absoluteString
       UserDefaults.standard.set(urlString, forKey: rssUrlStringKey)
       UserDefaults.standard.synchronize()
    }
    
-   private func loadSavedUrl() -> URL? {
+   private func savedUrl() -> URL? {
       guard let urlString = UserDefaults.standard.string(forKey: rssUrlStringKey),
          let url = URL(string: urlString) else { return nil }
       

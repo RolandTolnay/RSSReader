@@ -24,6 +24,12 @@
 		2A40C7F41EF0826A00353F98 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A40C7F31EF0826A00353F98 /* Regex.swift */; };
 		2A40C7F51EF0826A00353F98 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A40C7F31EF0826A00353F98 /* Regex.swift */; };
 		2A40C7F71EF08A7C00353F98 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A40C7F61EF08A7C00353F98 /* DetailViewController.swift */; };
+		2AC53EF91EF16F5800D22228 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC53EF81EF16F5800D22228 /* HistoryViewController.swift */; };
+		2AC53EFA1EF16F5800D22228 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC53EF81EF16F5800D22228 /* HistoryViewController.swift */; };
+		2AC53EFC1EF16FBB00D22228 /* HistoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC53EFB1EF16FBB00D22228 /* HistoryManager.swift */; };
+		2AC53EFD1EF16FBB00D22228 /* HistoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC53EFB1EF16FBB00D22228 /* HistoryManager.swift */; };
+		2AC53EFF1EF16FCD00D22228 /* HistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC53EFE1EF16FCD00D22228 /* HistoryItem.swift */; };
+		2AC53F001EF16FCD00D22228 /* HistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC53EFE1EF16FCD00D22228 /* HistoryItem.swift */; };
 		38EB277C1EF000F3007BF553 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EB277B1EF000F3007BF553 /* AppDelegate.swift */; };
 		38EB277E1EF000F3007BF553 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EB277D1EF000F3007BF553 /* MainViewController.swift */; };
 		38EB27811EF000F3007BF553 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38EB277F1EF000F3007BF553 /* Main.storyboard */; };
@@ -56,6 +62,9 @@
 		2A40C7EF1EF074D900353F98 /* FeedItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItemCell.swift; sourceTree = "<group>"; };
 		2A40C7F31EF0826A00353F98 /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		2A40C7F61EF08A7C00353F98 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		2AC53EF81EF16F5800D22228 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		2AC53EFB1EF16FBB00D22228 /* HistoryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryManager.swift; sourceTree = "<group>"; };
+		2AC53EFE1EF16FCD00D22228 /* HistoryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryItem.swift; sourceTree = "<group>"; };
 		38EB27781EF000F3007BF553 /* RSSReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSSReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38EB277B1EF000F3007BF553 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38EB277D1EF000F3007BF553 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +199,7 @@
 			children = (
 				38EB277D1EF000F3007BF553 /* MainViewController.swift */,
 				2A40C7F61EF08A7C00353F98 /* DetailViewController.swift */,
+				2AC53EF81EF16F5800D22228 /* HistoryViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -208,6 +218,7 @@
 				2A40C7E51EF06C8A00353F98 /* FeedItemManager.swift */,
 				2A40C7E81EF0719600353F98 /* FeedUrlStorage.swift */,
 				2A40C7F31EF0826A00353F98 /* Regex.swift */,
+				2AC53EFB1EF16FBB00D22228 /* HistoryManager.swift */,
 			);
 			name = "Services & Managers";
 			sourceTree = "<group>";
@@ -216,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				38EB279F1EF003AF007BF553 /* FeedItem.swift */,
+				2AC53EFE1EF16FCD00D22228 /* HistoryItem.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -440,10 +452,13 @@
 				2A40C7F71EF08A7C00353F98 /* DetailViewController.swift in Sources */,
 				38EB277E1EF000F3007BF553 /* MainViewController.swift in Sources */,
 				2A40C7F41EF0826A00353F98 /* Regex.swift in Sources */,
+				2AC53EF91EF16F5800D22228 /* HistoryViewController.swift in Sources */,
 				2A40C7E21EF0651100353F98 /* FeedReaderError.swift in Sources */,
 				38EB27A01EF003AF007BF553 /* FeedItem.swift in Sources */,
+				2AC53EFC1EF16FBB00D22228 /* HistoryManager.swift in Sources */,
 				2A40C7E91EF0719600353F98 /* FeedUrlStorage.swift in Sources */,
 				2A40C7DB1EF0606F00353F98 /* FeedReader.swift in Sources */,
+				2AC53EFF1EF16FCD00D22228 /* HistoryItem.swift in Sources */,
 				38EB277C1EF000F3007BF553 /* AppDelegate.swift in Sources */,
 				2A40C7F01EF074D900353F98 /* FeedItemCell.swift in Sources */,
 				2A40C7DE1EF0610F00353F98 /* FeedItemParser.swift in Sources */,
@@ -458,10 +473,13 @@
 				2A40C7F11EF074D900353F98 /* FeedItemCell.swift in Sources */,
 				2A40C7DF1EF0610F00353F98 /* FeedItemParser.swift in Sources */,
 				38EB27911EF000F4007BF553 /* RSSReaderTests.swift in Sources */,
+				2AC53EFA1EF16F5800D22228 /* HistoryViewController.swift in Sources */,
 				38EB27A11EF003AF007BF553 /* FeedItem.swift in Sources */,
+				2AC53F001EF16FCD00D22228 /* HistoryItem.swift in Sources */,
 				2A40C7EA1EF0719600353F98 /* FeedUrlStorage.swift in Sources */,
 				2A40C7F51EF0826A00353F98 /* Regex.swift in Sources */,
 				2A40C7E31EF0651100353F98 /* FeedReaderError.swift in Sources */,
+				2AC53EFD1EF16FBB00D22228 /* HistoryManager.swift in Sources */,
 				2A40C7E71EF06C8A00353F98 /* FeedItemManager.swift in Sources */,
 				2A40C7DC1EF0606F00353F98 /* FeedReader.swift in Sources */,
 			);

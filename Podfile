@@ -8,6 +8,7 @@ target 'RSSReader' do
   pod 'FeedKit', '~> 6.0'
   pod 'Nuke', '~> 5.0'
   pod 'PullToRefreshSwift', '~> 3.0'
+  pod 'SideMenu'
 
   target 'RSSReaderTests' do
     inherit! :search_paths
@@ -15,6 +16,7 @@ target 'RSSReader' do
     pod 'FeedKit', '~> 6.0'
     pod 'Nuke', '~> 5.0'
     pod 'PullToRefreshSwift', '~> 3.0'
+    pod 'SideMenu'
   end
 
 end
